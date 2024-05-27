@@ -1,0 +1,42 @@
+.container{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.inputContainer input{
+    height: 40px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+.loginButton{
+    width: 300px;
+    outline: none;
+    border: none;
+    background-color: skyblue;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    height: 40px;
+}
+
+.footer span{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer span:hover{
+    color: red;
+}

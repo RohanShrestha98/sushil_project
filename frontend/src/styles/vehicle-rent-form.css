@@ -1,0 +1,83 @@
+.vehicle-rent-form-container{
+    width: 100%;
+    display: flex;
+}
+
+.vehicles-details-div, .rent-form-div{
+    width: 50% !important;
+    margin: 20px 10px;
+}
+
+.label{
+    font-size: 26px;
+    color: #3c3b3f;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+img{
+    width: 250px;
+}
+
+.rent-form-div{
+    min-height: 500px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.rent-form-div div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.input{
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 4px;
+    padding: 4px 10px;
+}
+
+.button{
+    background-color: blue !important;
+    color: white;
+    border-radius: 4px !important;
+    width: 150px;
+    margin-top: 20px !important;
+    margin-left: 10px;
+}
+.button_esewa {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border-radius: 4px ;
+    width: 200px;
+    margin-top: 20px ;
+    float: right;    
+    margin-right: 20px;
+}
+
+.vehicles-details-div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vehicles-details-div .image-desc-container{
+    display: flex;
+    gap: 10px;
+}
+
+.name, .price{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.desc-container{
+    margin-top: 20px;
+}
+
+.description{
+    font-size: 20px;
+    font-weight: 400;
+}
