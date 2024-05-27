@@ -25,7 +25,7 @@ const Login = () => {
     const { login } = useContext(AuthContext);
 
     const onSubmit = async (data: any) => {
-        await axios.post("http://localhost:5000/api/admin/login", data)
+        await axios.post("http://localhost:5000/api/vendor/login", data)
             .then(res => {
                 console.log("res", res)
                 toast({ description: "Login Successful" });
@@ -37,33 +37,39 @@ const Login = () => {
                 navigate("/");
             })
             .catch(err => {
-                toast({ description: "Login Failed", variant: "destructive" });
+                console.log("err", err?.response?.data?.message)
+                toast({ description: err?.response?.data?.message, variant: "destructive" });
             })
     }
 
     return (
-        <Card className='w-2/3 h-2/3 p-10'>
-            <CardHeader>
-                <CardTitle>Login</CardTitle>
-            </CardHeader>
-            <CardDescription>
-                <form className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
-                    <div className='flex flex-col gap-2 items-start'>
-                        <Label>
-                            Email
-                        </Label>
-                        <Input {...register("email", { required: true })} type='email' />
-                    </div>
-                    <div className='flex flex-col gap-2 items-start'>
-                        <Label>
-                            Password
-                        </Label>
-                        <Input {...register("password", { required: true })} type='password' />
-                    </div>
-                    <Button>Login</Button>
-                </form>
-            </CardDescription>
-        </Card>
+        <div className='grid grid-cols-2  h-screen'>
+            <div className='bg-blue-200'></div>
+            <Card className='  px-28 py-32'>
+                <div className='flex flex-col gap-1 items-center mb-10'>
+                    <h1 className='text-xl font-semibold'>Login</h1>
+                    <h1 className='text-base text-gray-600 font-medium'>Enter your credintials her to login as vendor</h1>
+                </div>
+                <CardDescription>
+                    <form className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
+                        <div className='flex flex-col gap-2 items-start'>
+                            <Label>
+                                Email
+                            </Label>
+                            <Input placeholder='Enter your email' {...register("email", { required: true })} type='email' />
+                        </div>
+                        <div className='flex flex-col gap-2 items-start'>
+                            <Label>
+                                Password
+                            </Label>
+                            <Input placeholder='Enter your password' {...register("password", { required: true })} type='password' />
+                        </div>
+                        <Button className='mt-4'>Login</Button>
+                    </form>
+                </CardDescription>
+            </Card>
+        </div>
+
     )
 }
 

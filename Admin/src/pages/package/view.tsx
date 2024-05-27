@@ -20,7 +20,7 @@ interface VehicleType {
 const View = () => {
     const [data, setData] = useState<VehicleType[] | null>(null);
     const { toast } = useToast();
-    const {getToken} = useContext(AuthContext);
+    const { getToken } = useContext(AuthContext);
 
     const fetchData = async () => {
         await axios.get(`http://localhost:5000/api/vehicle/${getToken()}`)
@@ -45,11 +45,11 @@ const View = () => {
 
     useEffect(() => {
         fetchData();
-    }, []) 
-    
+    }, [])
+
 
     return (
-        <div className='w-full bg-blue-200'>
+        <div className='w-full bg-blue-100'>
             <Table>
                 <TableHeader>
                     <TableRow className='font-semibold'>
@@ -75,7 +75,7 @@ const View = () => {
                                 <TableCell>{item.category}</TableCell>
                                 <TableCell>{item.description}</TableCell>
                                 <TableCell>{item.perDayPrice}</TableCell>
-                                <TableCell>{!item.available ? <div className='w-2 h-2 rounded-lg bg-red-400'/> : <div className='w-2 h-2 rounded-lg bg-green-400'/>}</TableCell>
+                                <TableCell>{!item.available ? <div className='w-2 h-2 rounded-lg bg-red-400' /> : <div className='w-2 h-2 rounded-lg bg-green-400' />}</TableCell>
                                 <TableCell>
                                     <Button variant={"destructive"} onClick={() => deletePackage(item._id)}>
                                         <MdDelete />

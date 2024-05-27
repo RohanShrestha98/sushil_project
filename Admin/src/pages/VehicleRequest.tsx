@@ -81,7 +81,7 @@ const View = () => {
   }, []);
 
   return (
-    <div className="w-full bg-blue-200">
+    <div className="w-full bg-blue-100">
       <Table>
         <TableHeader>
           <TableRow className="font-semibold">

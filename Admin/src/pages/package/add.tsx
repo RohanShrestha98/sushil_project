@@ -62,8 +62,8 @@ const Add = () => {
                         Add Vehicles
                     </CardTitle>
                 </CardHeader>
-                <CardDescription>
-                    <form className='flex flex-col p-5 gap-5 bg-blue-200' onSubmit={handleSubmit(onSubmit)} action="">
+                <CardDescription className=''>
+                    <form className='flex flex-col p-5 gap-5 bg-blue-100' onSubmit={handleSubmit(onSubmit)} action="">
                         <div className='flex flex-col gap-2 items-start'>
                             <Label>Vehicle Name</Label>
                             <Input {...register('vehicleNumber', { required: true })} />
@@ -96,7 +96,10 @@ const Add = () => {
                             <Label>Description</Label>
                             <Textarea {...register('description', { required: true })} />
                         </div>
-                        <Button type='submit'>Add Vehicle</Button>
+                        <div className='flex justify-end'>
+                            <Button className='w-[200px]' type='submit'>Add Vehicle</Button>
+                        </div>
+
                     </form>
                 </CardDescription>
             </Card>
