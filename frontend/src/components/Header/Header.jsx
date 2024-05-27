@@ -56,8 +56,8 @@ const Header = () => {
   const btnRef = React.useRef()
   const [bookingData, setBookingData] = useState([]);
   const navigate = useNavigate();
-  const [logoutModal,setLogoutModal] = useState(false)
-  const { isLoggedIn, getPhoneNumber ,logout} = useContext(AuthContext);
+  const [logoutModal, setLogoutModal] = useState(false)
+  const { isLoggedIn, getPhoneNumber, logout } = useContext(AuthContext);
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
 
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -100,11 +100,11 @@ const Header = () => {
             </Col>
             {isLoggedIn() ? <Col lg="6" md="6" sm="6">
               <div className="header__top__right relative d-flex align-items-center justify-content-end gap-3">
-                <div onClick={()=>setLogoutModal(!logoutModal)} style={{ cursor: "pointer" }} className=" d-flex align-items-center gap-1 ">
+                <div onClick={() => setLogoutModal(!logoutModal)} style={{ cursor: "pointer" }} className=" d-flex align-items-center gap-1 ">
                   <i className="ri-user-line"></i> Profile
                 </div>
                 {
-                  logoutModal && <div  onClick={()=>{
+                  logoutModal && <div onClick={() => {
                     logout();
                     toast({
                       title: 'Logout successful.',
@@ -114,7 +114,7 @@ const Header = () => {
                       position: 'top-right'
                     })
                     navigate("/home");
-                }} className="absolute w-[140px] py-2 cursor-pointer 00 px-4  top-8 border bg-white z-10 text-gray-800 hover:bg-gray-1">Logout</div>
+                  }} className="absolute w-[140px] py-2 cursor-pointer 00 px-4  top-8 border bg-white z-10 text-gray-800 hover:bg-gray-1">Logout</div>
                 }
                 <div ref={btnRef} onClick={onDrawerOpen} style={{ cursor: "pointer" }} className=" d-flex align-items-center gap-1">
                   <GoBell />
@@ -275,16 +275,16 @@ const Header = () => {
               {
                 bookingData.map((item) => {
                   return (<div style={{ display: "flex", flexDirection: "row", justifyContent: "start", gap: "10px", width: "100%" }} key={item._id}>
-                    <img style={{ height: "100px", objectFit: "contain", overflow: "hidden", width: "auto" }} src={item.vehicle.displayImage} alt="" />
+                    <img style={{ height: "100px", objectFit: "contain", overflow: "hidden", width: "auto" }} src={item?.vehicle?.displayImage} alt="" />
                     <div style={{
                       fontSize: "14px"
                     }}>
                       <div style={{
                         fontSize: "18px"
-                      }}>{item.vehicle.vehicleNumber}</div>
-                      <div>{item.date}</div>
-                      <div>{item.duration} Days</div>
-                      <div>Rs.{parseInt(item.duration) * parseInt(item.vehicle.perDayPrice)}</div>
+                      }}>{item?.vehicle?.vehicleNumber}</div>
+                      <div>{item?.date}</div>
+                      <div>{item?.duration} Days</div>
+                      <div>Rs.{parseInt(item?.duration) * parseInt(item?.vehicle?.perDayPrice)}</div>
                     </div>
                   </div>)
                 })
